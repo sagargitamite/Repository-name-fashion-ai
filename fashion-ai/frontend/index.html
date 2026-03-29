@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fashion AI</title>
+<link rel="stylesheet" href="style.css">
+
+<!-- 🌐 Premium Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* 🎬 Apple/Netflix Style UI */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: #fff;
+}
+
+h1 {
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+/* ✨ Glass + Dark Premium Card */
+.box, #result {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 20px;
+    width: 300px;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: 0.3s;
+}
+
+.box:hover, #result:hover {
+    transform: translateY(-6px);
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255,255,255,0.08);
+    color: white;
+}
+
+/* ✅ Fix dropdown options visibility */
+select option {
+    background: #1e293b;
+    color: white;
+}
+
+/* 🎯 Premium Buttons */
+button {
+    margin-top: 10px;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(99,102,241,0.6);
+}
+
+#preview, video {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.outfits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+
+/* 🎴 Netflix-style Cards */
+.card {
+    background: rgba(255,255,255,0.08);
+    padding: 10px;
+    border-radius: 12px;
+    width: 120px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
+.outfit-img {
+    width: 100%;
+    height: 100px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.best {
+    background: gold;
+    color: black;
+    padding: 3px 6px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+/* 🔄 Loader */
+#loader {
+    display: none;
+    border: 5px solid rgba(255,255,255,0.2);
+    border-top: 5px solid #6366f1;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin: 20px auto;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>✨ Fashion AI</h1>
+
+
+
+<div class="container">
+
+    <div class="box">
+        <input type="file" id="imageInput" accept="image/*" onchange="previewImage(event)">
+        <img id="preview" />
+
+        <select id="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+
+        <select id="eventSelect">
+            <option value="party">Party</option>
+            <option value="casual">Casual</option>
+            <option value="formal">Formal</option>
+            <option value="wedding">Wedding</option>
+        </select>
+
+        <input type="number" id="height" step="0.1" placeholder="Height (ft)">
+        <input type="number" id="weight" placeholder="Weight (kg)">
+
+        <button onclick="analyzeImage()">Analyze</button>
+
+        <input type="text" id="chatInput" placeholder="Ask AI stylist...">
+<button onclick="askAI()">Ask</button>
+<div id="chatResult"></div>
+
+        <button onclick="startCamera()">📸 Start Camera</button>
+        <button onclick="capturePhoto()">Capture</button>
+
+        <video id="camera" autoplay></video>
+        <canvas id="canvas" style="display:none;"></canvas>
+
+        <div id="loader"></div>
+    </div>
+
+    <div id="result"></div>
+
+</div>
+
+<script src="script.js">
+
+/* 🌙 Toggle Dark/Light Mode */
+ else {
+        localStorage.setItem("theme", "dark");
+    }
+}
+
+
+
+
+
+</script>
+
+<style>
+</style>
+
+
+</body>
+</html>
